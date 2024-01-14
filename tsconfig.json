@@ -1,0 +1,7 @@
+{
+  "extends": "@devvit/public-api/devvit.tsconfig.json",
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["dom", "ES2020", "WebWorker"],
+  }
+}
