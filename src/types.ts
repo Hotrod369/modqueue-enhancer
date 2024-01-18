@@ -1,6 +1,6 @@
-// Types
+// src/types.ts
 export type Thing = {
-    // Define the properties of Thing here
-    authorId: string;
-    // ... other properties
-  };
+  targetId: `t3_${string}` | `t1_${string}`;
+  username: string;
+  authorId: `t2_${string}`;
+};

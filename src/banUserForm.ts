@@ -1,5 +1,6 @@
 import { Devvit } from "@devvit/public-api";
-import banUserFormHandler from "./banUserFormHandler.js";
+import { banUserFormHandler } from "./banUserFormHandler.js";
+
 
 
 Devvit.configure({

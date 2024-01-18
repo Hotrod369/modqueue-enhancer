@@ -1,3 +1,5 @@
+// src/handleBanUserMenuItemPress.ts
+
 import { Comment, Devvit, FormOnSubmitEvent, MenuItemOnPressEvent, Post } from "@devvit/public-api";
 import { banUserForm } from "./banUserForm.js";
 
@@ -47,4 +49,5 @@ export async function handleBanUserMenuItemPress(event: MenuItemOnPressEvent | F
   // Log the entire formEvent object
   console.log('banUserForm:', JSON.stringify(banUserForm, null, 2));
   console.log('formData:', JSON.stringify(formData, null, 2));
+  return;
 }

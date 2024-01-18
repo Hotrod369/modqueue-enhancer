@@ -1,12 +1,4 @@
-import {
-  Comment,
-  Devvit,
-  FormOnSubmitEvent,
-  MenuItemOnPressEvent,
-  Post,
-  User
-} from "@devvit/public-api";
-import { Thing } from './types.js';
+import { Devvit, MenuItemOnPressEvent } from "@devvit/public-api";
 
 
   Devvit.configure({
@@ -14,19 +6,26 @@ import { Thing } from './types.js';
     redditAPI: true,
   });
 
-export async function getAuthor(event: MenuItemOnPressEvent | (FormOnSubmitEvent & { post: Post } & { comment: Comment }), context: Devvit.Context): Promise<User> {
-  const { reddit } = context;
-  const thing = await getThing(event, context);
-  return await reddit.getUserById(thing.authorId!);
-}
+  export async function getAuthor(event: MenuItemOnPressEvent, context: Devvit.Context) {
+    const { reddit } = context;
+    const thing = await getThing(event, context);
+    console.log('getAuthor - thing:', JSON.stringify(thing, null, 2));
+  
+    if (thing && 'authorId' in thing) {
+      return await reddit.getUserById(thing.authorId!);
+    } else {
+      console.error('getAuthor - Author ID is undefined or not present in the thing object.');
+      return undefined;
+    }
+  }
 
-export async function getThing(event: MenuItemOnPressEvent | (FormOnSubmitEvent & { post: Post } & { comment: Comment }), context: Devvit.Context): Promise<Thing> {
-  if ('location' in event) {
+async function getThing(event: MenuItemOnPressEvent, context: Devvit.Context) {
+  const { location, targetId } = event;
   const { reddit } = context;
-  const { location, targetId } = event as MenuItemOnPressEvent;  }
-  else {
-  // TypeScript knows event is FormOnSubmitEvent & { post: Post } & { comment: Comment }
-  const { post, comment } = event as FormOnSubmitEvent & { post: Post } & { comment: Comment };
-}
+  if (location === 'post') {
+    return await reddit.getPostById(targetId);
+  } else if (location === 'comment') {
+    return await reddit.getCommentById(targetId);
+  }
   throw 'Cannot find a post or comment with that ID';
 }

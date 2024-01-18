@@ -1,13 +1,3 @@
 {
   "extends": "@devvit/public-api/devvit.tsconfig.json",
-  "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["dom", "ES2020", "WebWorker"],
-    "outDir": "./build", // specify the output directory
-    "rootDir": "./src",  // specify the root directory of your source files
-    // other compiler options...
-  },
-  "include": [
-    "src/**/*.ts"  // specify the path to your TypeScript source files
-  ],
 }
