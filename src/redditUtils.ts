@@ -1,12 +1,5 @@
-import {
-  Comment,
-  Devvit,
-  FormOnSubmitEvent,
-  MenuItemOnPressEvent,
-  Post,
-  User
-} from "@devvit/public-api";
-import { Thing } from './types.js';
+// src/redditUtils.ts
+import { Comment, Devvit, MenuItemOnPressEvent, Post } from "@devvit/public-api";
 
 
   Devvit.configure({
@@ -14,19 +7,27 @@ import { Thing } from './types.js';
     redditAPI: true,
   });
 
-export async function getAuthor(event: MenuItemOnPressEvent | (FormOnSubmitEvent & { post: Post } & { comment: Comment }), context: Devvit.Context): Promise<User> {
-  const { reddit } = context;
-  const thing = await getThing(event, context);
-  return await reddit.getUserById(thing.authorId!);
-}
-
-export async function getThing(event: MenuItemOnPressEvent | (FormOnSubmitEvent & { post: Post } & { comment: Comment }), context: Devvit.Context): Promise<Thing> {
-  if ('location' in event) {
-  const { reddit } = context;
-  const { location, targetId } = event as MenuItemOnPressEvent;  }
-  else {
-  // TypeScript knows event is FormOnSubmitEvent & { post: Post } & { comment: Comment }
-  const { post, comment } = event as FormOnSubmitEvent & { post: Post } & { comment: Comment };
-}
-  throw 'Cannot find a post or comment with that ID';
-}
+  export async function getThing(event: MenuItemOnPressEvent, context: Devvit.Context): Promise<Post | Comment> {
+    console.log('getThing event:', event);
+    const { location, targetId } = event;
+    const { reddit } = context;
+    let thing;
+    if (location === 'post') {
+      thing = await reddit.getPostById(targetId);
+    } else if (location === 'comment') {
+      thing = await reddit.getCommentById(targetId);
+    } else {
+      throw 'Cannot find a post or comment with that ID';
+    }
+    console.log('getThing result:', thing);
+    return thing;
+  }
+  
+  export async function getAuthor(event: MenuItemOnPressEvent, context: Devvit.Context) {
+    console.log('getAuthor event:', event);
+    const { reddit } = context;
+    const thing = await getThing(event, context);
+    const user = (await reddit.getUserById(thing.authorId!));
+    console.log('getAuthor result:', user);
+    return user;
+  }

@@ -12,11 +12,11 @@ Devvit.configure({
   /**
    * Add Ban, Unban, Mute, and Unmute User options to the overflow menu
    */
-Devvit.addMenuItem({
+  Devvit.addMenuItem({
     label: 'Ban User',
     location: ['post', 'comment'],
     forUserType: 'moderator',
-    onPress: handleBanUserMenuItemPress,
+    onPress:handleBanUserMenuItemPress,
   });
   
   /**
@@ -42,3 +42,5 @@ Devvit.addMenuItem({
     forUserType: 'moderator',
     onPress: unmuteUser,
   });
+
+  export default Devvit;
