@@ -34,16 +34,8 @@ export async function handleBanUserMenuItemPress(event: MenuItemOnPressEvent | F
 
     // Fetching the subreddit name from the context
     const subredditName = (await context.reddit.getSubredditById(context.subredditId)).name;
-    try {
-      // Send a private message if customMessage is provided
-      if (customMessage) {
-        await context.reddit.sendPrivateMessage({
-          to: username,
-          subject: `Notification from ${subredditName}`,
-          text: customMessage,
-        });
-      }
 
+    try {
       // Execute ban logic using 'banReason'
       await context.reddit.banUser({
         subredditName: subredditName,
@@ -55,6 +47,14 @@ export async function handleBanUserMenuItemPress(event: MenuItemOnPressEvent | F
         message: ''
       });
 
+        // Send a private message if customMessage is provided
+      if (customMessage) {
+        await context.reddit.sendPrivateMessage({
+          to: username,
+          subject: `Notification from ${subredditName}`,
+          text: customMessage,
+        });
+      }
       // Display message the user has been banned
       context.ui.showToast(`u/${username} has been banned.`);
       console.log(`u/${username} has been banned.`);
