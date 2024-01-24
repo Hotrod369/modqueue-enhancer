@@ -25,44 +25,44 @@ export async function handleBanUserMenuItemPress(event: MenuItemOnPressEvent | F
 
     // Displaying the form to get ban details from the moderator
     context.ui.showForm(banUserForm, { data: { authorId: author.id } });
-  } 
-  // Check if the event is a FormOnSubmitEvent (form submission)
-  else if ('values' in event) {
-    // Extracting submitted values from the form
-    const formValues = event.values as any; // Casting to 'any' to access form values
+  }else if ('values' in event) {
+    const { username, reason, modNote, banDays, customMessage } = event.values as any;
 
-    // Extracting the username from the form values, essential for banning
-    const username = formValues.username;
-    if (!username) {
-      console.error('Error: Username not provided in form values');
-      return;
-    }
+    // Ensure 'reason' is a string
+    const banReason = Array.isArray(reason) ? reason[0] : reason;
+    const shortBanReason = banReason.length > 100 ? banReason.substring(0, 97) + '...' : banReason;
 
     // Fetching the subreddit name from the context
     const subredditName = (await context.reddit.getSubredditById(context.subredditId)).name;
-
     try {
-      // Executing the ban logic with details provided in the form
+      // Send a private message if customMessage is provided
+      if (customMessage) {
+        await context.reddit.sendPrivateMessage({
+          to: username,
+          subject: `Notification from ${subredditName}`,
+          text: customMessage,
+        });
+      }
+
+      // Execute ban logic using 'banReason'
       await context.reddit.banUser({
-        subredditName: subredditName || '',
+        subredditName: subredditName,
         username: username,
-        duration: formValues.banDays ? parseInt(formValues.banDays, 10) : 1,
+        duration: banDays ? parseInt(banDays, 10) : undefined,
         context: '',
-        reason: formValues.reason || 'Violation of subreddit rules',
-        note: formValues.modNote || `Banned by ${(await context.reddit.getCurrentUser()).username} via Devvit`,
-        message: formValues.customMessage || ''
+        reason: banReason || 'Violation of subreddit rules', // Use 'banReason' here
+        note: modNote || `Banned by ${(await context.reddit.getCurrentUser()).username} via Devvit`,
+        message: ''
       });
 
-      // Displaying a toast message on successful ban
+      // Display message the user has been banned
       context.ui.showToast(`u/${username} has been banned.`);
       console.log(`u/${username} has been banned.`);
     } catch (error) {
-      // Logging and displaying error if the banning process fails
       console.error('Error banning user:', error);
-      context.ui.showToast(`Error banning user. Check the console for details.`);
+      context.ui.showToast(`Error banning user. Did you enter the username correctly?`);
     }
   } else {
-    // Logging an error if the event type is not recognized
     console.error('Event type not recognized');
   }
 }

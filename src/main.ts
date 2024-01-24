@@ -1,3 +1,5 @@
+// src/main.ts
+
 import { Devvit } from "@devvit/public-api";
 import { handleBanUserMenuItemPress } from "./handleBanUserMenuItemPress.js";
 import { muteUser, unmuteUser } from "./muteUser.js";
