@@ -12,7 +12,6 @@
   "dependencies": {
     "@devvit/public-api": "0.10.14-next-2024-01-23-b5791616c.0",
     "@types/node": "^20.11.5"
-
   },
   "devDependencies": {
     "typescript": "^5.3.2",
