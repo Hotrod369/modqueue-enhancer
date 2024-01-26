@@ -2,7 +2,7 @@
 
 Modqueue Enhancer is a tool that enhances the modqueue functionality on Reddit by adding options such as Ban, Unban, Mute, and Unmute to the modqueue overflow menu.
 
-## Devvit Installation
+## Setting Up Modqueue Enhancer For Development or Usage
 
 ### Prerequisites
 
