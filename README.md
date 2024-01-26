@@ -38,6 +38,12 @@ Make sure you have the following prerequisites installed on your machine:
 
 `devvit upload`
 
+**Upload the project:**
+
+```bash
+devvit upload
+```
+
 **Run the Project:**
 
 `devvit playtest <subreddit-name>`
