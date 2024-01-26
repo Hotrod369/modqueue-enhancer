@@ -1,7 +1,7 @@
 // src/handleBanUserMenuItemPress.ts
-
 import { Devvit, FormOnSubmitEvent, MenuItemOnPressEvent } from "@devvit/public-api";
 import { banUserForm } from "./banUserForm.js";
+import { loadSettings } from "./main.js";
 import { getAuthor } from "./redditUtils.js";
 
 // Configuring Devvit with required plugins
@@ -12,16 +12,17 @@ Devvit.configure({
 
 /**
  * This function handles the menu item press event for banning a user.
- * It either displays a form for banning or processes the submitted form.
+ * It displays a form for banning and processes the submitted form.
  */
 export async function handleBanUserMenuItemPress(event: MenuItemOnPressEvent | FormOnSubmitEvent, context: Devvit.Context) {
-  console.log('handleBanUserMenuItemPressEvent:', JSON.stringify(event, null, 2));
 
   // Check if the event is a MenuItemOnPressEvent (initial menu item click)
   if ('targetId' in event && 'location' in event) {
     // Fetching the author's details based on the menu item event
     const author = await getAuthor(event, context);
-    console.log('Called Author:', author.username);
+
+        // Load settings before showing the form
+        await loadSettings(context);
 
     // Displaying the form to get ban details from the moderator
     context.ui.showForm(banUserForm, { data: { authorId: author.id } });
@@ -57,13 +58,9 @@ export async function handleBanUserMenuItemPress(event: MenuItemOnPressEvent | F
       }
       // Display message the user has been banned
       context.ui.showToast(`u/${username} has been banned.`);
-      console.log(`u/${username} has been banned.`);
     } catch (error) {
-      console.error('Error banning user:', error);
       context.ui.showToast(`Error banning user. Did you enter the username correctly?`);
     }
-  } else {
-    console.error('Event type not recognized');
   }
 }
 
