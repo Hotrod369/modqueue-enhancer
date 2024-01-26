@@ -24,7 +24,7 @@ Make sure you have the following prerequisites installed on your machine:
 
 3. **Clone the Repository:**
 
-`git clone https://github.com/YourUsername/ModqueueEnhancer.git`
+`git clone https://github.com/<Your GitHub Username>/modqueue-enhancer.git`
 
 **Navigate to the Project Directory:**
 
@@ -33,10 +33,6 @@ Make sure you have the following prerequisites installed on your machine:
 **Install Dependencies:**
 
 `npm install`
-
-**Upload the project:**
-
-`devvit upload`
 
 **Upload the project:**
 
@@ -98,7 +94,6 @@ The enhanced options (Ban, Unban, Mute, Unmute) should now be available in the o
 
 We welcome contributions to Modqueue Enhancer! To contribute, please follow these guidelines:
 
-- Code of Conduct: Respect our code of conduct to ensure a welcoming and inclusive environment.
 - Reporting Bugs: If you find a bug, please report it by creating a new issue and including detailed reproduction steps.
 - Feature Requests: Have a suggestion? Open an issue to discuss new features or improvements.
 - Pull Requests: For making changes, please fork the repository, make your changes, and submit a pull request. Ensure your code adheres to the coding standards of the project.
