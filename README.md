@@ -2,40 +2,7 @@
 
 Modqueue Enhancer is a tool that enhances the modqueue functionality on Reddit by adding options such as Ban, Unban, Mute, and Unmute to the modqueue overflow menu.
 
-## Setting Up Modqueue Enhancer For Development or Usage
-
-### Prerequisites
-
-Make sure you have the following prerequisites installed on your machine:
-
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
-- [Devvit](https://github.com/reddit/devvit)
-
-### Steps
-
-1. **Install Devvit**
-`devvit install`
-
-2. **Login to Devvit**
-`devvit login`
-
-3. **Clone the Repository:**
-`git clone https://github.com/<Your GitHub Username>/modqueue-enhancer.git`
-
-**Navigate to the Project Directory:**
-`cd modqueue-enhancer`
-
-**Install Dependencies:**
-`npm install`
-
-**Upload the project:**
-`devvit upload`
-
-**Run the Project:**
-`devvit playtest <subreddit-name>`
-
-This will run the project for further development using the configured Devvit environment.
+## Installing Modqueue Enhancer For Usage
 
 ## Usage
 
