@@ -57,4 +57,4 @@ We welcome contributions to Modqueue Enhancer! To contribute, please follow thes
 
 ### License
 
-This project is licensed under the MIT License.
+This project is licensed under the BSD-3-Clause license.
