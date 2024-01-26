@@ -40,9 +40,7 @@ Make sure you have the following prerequisites installed on your machine:
 
 **Upload the project:**
 
-```bash
-devvit upload
-```
+`devvit upload`
 
 **Run the Project:**
 
