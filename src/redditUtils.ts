@@ -6,9 +6,10 @@ import { Comment, Devvit, MenuItemOnPressEvent, Post } from "@devvit/public-api"
     redis: true,
     redditAPI: true,
   });
-
+/**
+ * Get the offending post or comment
+ */
   export async function getThing(event: MenuItemOnPressEvent, context: Devvit.Context): Promise<Post | Comment> {
-    console.log('getThing event:', event);
     const { location, targetId } = event;
     const { reddit } = context;
     let thing;
@@ -19,15 +20,15 @@ import { Comment, Devvit, MenuItemOnPressEvent, Post } from "@devvit/public-api"
     } else {
       throw 'Cannot find a post or comment with that ID';
     }
-    console.log('getThing result:', thing);
     return thing;
   }
-  
+
+/**
+ * Get the author of the post or comment
+ */  
   export async function getAuthor(event: MenuItemOnPressEvent, context: Devvit.Context) {
-    console.log('getAuthor event:', event);
     const { reddit } = context;
     const thing = await getThing(event, context);
     const user = (await reddit.getUserById(thing.authorId!));
-    console.log('getAuthor result:', user);
     return user;
   }

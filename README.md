@@ -10,7 +10,7 @@ Make sure you have the following prerequisites installed on your machine:
 
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/) (comes with Node.js)
-- Devvit
+- [Devvit](https://github.com/reddit/devvit)
 
 ### Steps
 
@@ -42,6 +42,12 @@ cd ModqueueEnhancer
 
 ```bash
 npm install
+```
+
+**Upload the project:**
+
+```bash
+devvit upload
 ```
 
 **Run the Project:**
