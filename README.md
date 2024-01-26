@@ -2,7 +2,7 @@
 
 Modqueue Enhancer is a tool that enhances the modqueue functionality on Reddit by adding options such as Ban, Unban, Mute, and Unmute to the modqueue overflow menu.
 
-## Devvit Installation
+## Setting Up Modqueue Enhancer For Development or Usage
 
 ### Prerequisites
 
@@ -15,37 +15,24 @@ Make sure you have the following prerequisites installed on your machine:
 ### Steps
 
 1. **Install Devvit**
-
 `devvit install`
 
 2. **Login to Devvit**
-
 `devvit login`
 
 3. **Clone the Repository:**
-
-`git clone https://github.com/YourUsername/ModqueueEnhancer.git`
+`git clone https://github.com/<Your GitHub Username>/modqueue-enhancer.git`
 
 **Navigate to the Project Directory:**
-
 `cd modqueue-enhancer`
 
 **Install Dependencies:**
-
 `npm install`
 
 **Upload the project:**
-
 `devvit upload`
 
-**Upload the project:**
-
-```bash
-devvit upload
-```
-
 **Run the Project:**
-
 `devvit playtest <subreddit-name>`
 
 This will run the project for further development using the configured Devvit environment.
@@ -72,19 +59,14 @@ After installing and running Modqueue Enhancer, you need to set up the subreddit
 ### Setting Up Subreddit Rules
 
 1. Access the App Settings Page:
-
-Go to <https://developers.reddit.com/r/><YourSubredditName>/apps/ModqueueEnhance to access the settings page of the Modqueue Enhancer for your subreddit.
+Go to `https://developers.reddit.com/r/<YourSubredditName>/apps/modqueue-enhance` to access the settings page of the Modqueue Enhancer for your subreddit.
 
 2. Enter Subreddit Rules:
-
 In the 'Subreddit Rules' field, enter a comma-separated list of rules that you want to appear in the dropdown menu. For example:
-
 `No spamming, Be respectful, No personal attacks, No illegal content`
-
 Ensure that each rule is separated by a comma and there is no trailing comma at the end.
 
 3. Save Changes:
-
 After entering the rules, click the 'Save changes' button to update the settings.
 
 ### Using the Subreddit Rules in Modqueue Enhancer
@@ -100,7 +82,6 @@ The enhanced options (Ban, Unban, Mute, Unmute) should now be available in the o
 
 We welcome contributions to Modqueue Enhancer! To contribute, please follow these guidelines:
 
-- Code of Conduct: Respect our code of conduct to ensure a welcoming and inclusive environment.
 - Reporting Bugs: If you find a bug, please report it by creating a new issue and including detailed reproduction steps.
 - Feature Requests: Have a suggestion? Open an issue to discuss new features or improvements.
 - Pull Requests: For making changes, please fork the repository, make your changes, and submit a pull request. Ensure your code adheres to the coding standards of the project.
