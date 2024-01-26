@@ -15,31 +15,24 @@ Make sure you have the following prerequisites installed on your machine:
 ### Steps
 
 1. **Install Devvit**
-
 `devvit install`
 
 2. **Login to Devvit**
-
 `devvit login`
 
 3. **Clone the Repository:**
-
 `git clone https://github.com/<Your GitHub Username>/modqueue-enhancer.git`
 
 **Navigate to the Project Directory:**
-
 `cd modqueue-enhancer`
 
 **Install Dependencies:**
-
 `npm install`
 
 **Upload the project:**
-
 `devvit upload`
 
 **Run the Project:**
-
 `devvit playtest <subreddit-name>`
 
 This will run the project for further development using the configured Devvit environment.
@@ -66,19 +59,14 @@ After installing and running Modqueue Enhancer, you need to set up the subreddit
 ### Setting Up Subreddit Rules
 
 1. Access the App Settings Page:
-
 Go to `https://developers.reddit.com/r/<YourSubredditName>/apps/modqueue-enhance` to access the settings page of the Modqueue Enhancer for your subreddit.
 
 2. Enter Subreddit Rules:
-
 In the 'Subreddit Rules' field, enter a comma-separated list of rules that you want to appear in the dropdown menu. For example:
-
 `No spamming, Be respectful, No personal attacks, No illegal content`
-
 Ensure that each rule is separated by a comma and there is no trailing comma at the end.
 
 3. Save Changes:
-
 After entering the rules, click the 'Save changes' button to update the settings.
 
 ### Using the Subreddit Rules in Modqueue Enhancer
