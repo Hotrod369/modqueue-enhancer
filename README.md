@@ -71,7 +71,7 @@ After installing and running Modqueue Enhancer, you need to set up the subreddit
 
 1. Access the App Settings Page:
 
-Go to https://developers.reddit.com/r/<YourSubredditName>/apps/ModqueueEnhance to access the settings page of the Modqueue Enhancer for your subreddit.
+Go to `https://developers.reddit.com/r/<YourSubredditName>/apps/modqueue-enhance` to access the settings page of the Modqueue Enhancer for your subreddit.
 
 2. Enter Subreddit Rules:
 
